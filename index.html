@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-lang="ar" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>محمد رضا — مدونة تقنية</title>
+<meta name="description" content="مدونة تقنية متخصصة في البرمجة وتطوير الويب والحلول التقنية — محتوى عربي عالي الجودة" />
+<link rel="stylesheet" href="main.css" />
+<link rel="stylesheet" href="hero.css" />
+<link rel="stylesheet" href="sections.css" />
+</head>
+<body>
+
+<!-- ─── NOISE ─── -->
+<div class="noise"></div>
+
+<!-- ─── PARTICLES ─── -->
+<canvas id="particles-canvas"></canvas>
+
+<!-- ══════════════════════════════════════
+     LOADER
+══════════════════════════════════════ -->
+<div id="loader">
+  <div class="loader-logo-wrap">
+    <svg class="loader-logo-svg" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="80" height="80" rx="20" fill="#0d1424"/>
+      <rect x="0.5" y="0.5" width="79" height="79" rx="19.5" stroke="rgba(37,99,235,0.3)"/>
+      <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle"
+            font-family="Cairo, sans-serif" font-weight="900" font-size="32"
+            fill="#F8FAFC" letter-spacing="-1">MR</text>
+      <circle cx="60" cy="20" r="5" fill="#2563EB" opacity="0.7">
+        <animate attributeName="opacity" values="0.7;0.2;0.7" dur="2s" repeatCount="indefinite"/>
+      </circle>
+    </svg>
+  </div>
+  <div class="loader-name">Mohamed Reda Blog</div>
+  <div class="loader-track"><div class="loader-fill"></div></div>
+</div>
+
+<!-- ══════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <!-- Logo -->
+    <a href="#" class="nav-logo">MR<span class="nav-logo-dot">.</span></a>
+
+    <!-- Desktop links -->
+    <ul class="nav-center">
+      <li><a href="#featured"   class="nav-link" data-i18n="nav-featured">المقالات</a></li>
+      <li><a href="#categories" class="nav-link" data-i18n="nav-categories">الأقسام</a></li>
+      <li><a href="#guides"     class="nav-link" data-i18n="nav-guides">الأدلة</a></li>
+      <li><a href="#tutorials"  class="nav-link" data-i18n="nav-tutorials">الشروحات</a></li>
+      <li><a href="#contact"    class="nav-link" data-i18n="nav-contact">التواصل</a></li>
+    </ul>
+
+    <!-- Actions -->
+    <div class="nav-right">
+      <button id="lang-btn"   class="nav-action-btn lang-pill">EN</button>
+      <button id="theme-btn"  class="nav-action-btn" title="تبديل المظهر">☀</button>
+      <button id="menu-btn"   class="nav-action-btn menu-btn" aria-label="القائمة">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════
+     MOBILE MENU
+══════════════════════════════════════ -->
+<div id="mobile-menu" role="dialog" aria-label="القائمة الرئيسية">
+  <a href="#featured"   class="mob-link" data-i18n="nav-featured">المقالات</a>
+  <a href="#categories" class="mob-link" data-i18n="nav-categories">الأقسام</a>
+  <a href="#guides"     class="mob-link" data-i18n="nav-guides">الأدلة</a>
+  <a href="#tutorials"  class="mob-link" data-i18n="nav-tutorials">الشروحات</a>
+  <a href="#faq"        class="mob-link">FAQ</a>
+  <a href="#contact"    class="mob-link" data-i18n="nav-contact">التواصل</a>
+</div>
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="blob blob-blue hero-blob-1" style="width:700px;height:700px;top:-150px;right:-150px;"></div>
+  <div class="blob blob-cyan  hero-blob-2" style="width:400px;height:400px;bottom:0;left:5%;"></div>
+
+  <div class="hero-inner">
+    <!-- LEFT -->
+    <div class="hero-left">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        <span data-i18n="hero-badge">محتوى تقني حصري</span>
+      </div>
+
+      <h1 class="hero-h1">
+        <span data-i18n="hero-h1-1">اكتشف</span>
+        <span class="line2" data-i18n="hero-h1-2">عالم التقنية</span>
+        <span class="line3" data-i18n="hero-h1-3">بمنظور مختلف</span>
+      </h1>
+
+      <p class="hero-desc" data-i18n="hero-desc">
+        مدونة تقنية متخصصة في البرمجة وتطوير الويب والحلول التقنية. محتوى عربي عالي الجودة يبسّط المعقد.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#featured" class="btn btn-primary" data-i18n="hero-btn-p">استعرض المقالات</a>
+        <a href="#categories" class="btn btn-ghost" data-i18n="hero-btn-s">تصفح الأقسام</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-n" data-count="120" data-suffix="+" data-i18n="hero-stat-1-n">١٢٠+</div>
+          <div class="hero-stat-l" data-i18n="hero-stat-1-l">مقال منشور</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-n" data-count="15" data-suffix="k+" data-i18n="hero-stat-2-n">١٥ك+</div>
+          <div class="hero-stat-l" data-i18n="hero-stat-2-l">قارئ شهري</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-n" data-count="6" data-suffix="" data-i18n="hero-stat-3-n">٦</div>
+          <div class="hero-stat-l" data-i18n="hero-stat-3-l">أقسام تقنية</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT — Orbit visual -->
+    <div class="hero-right">
+      <div class="orbit-wrap">
+        <!-- Rings -->
+        <div class="orbit-ring"></div>
+        <div class="orbit-ring orbit-ring-2"></div>
+        <!-- Center -->
+        <div class="orbit-center">
+          <svg class="orbit-center-icon" viewBox="0 0 80 80" fill="none">
+            <!-- Code brackets illustration -->
+            <path d="M28 24L14 40L28 56" stroke="#2563EB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="draw-path"/>
+            <path d="M52 24L66 40L52 56" stroke="#2563EB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="draw-path"/>
+            <path d="M44 20L36 60" stroke="#06b6d4" stroke-width="2" stroke-linecap="round" class="draw-path"/>
+          </svg>
+        </div>
+        <!-- Animated orbit dots (JS controlled) -->
+        <div class="orbit-dot" style="left:180px;top:-5px;"></div>
+        <div class="orbit-dot orbit-dot-2" style="left:180px;top:-5px;"></div>
+      </div>
+
+      <!-- Floating info cards -->
+      <div class="float-card fc-1">
+        <div class="fc-label">مقالات</div>
+        <div class="fc-value"><span>120</span>+</div>
+        <div class="fc-bar"><div class="fc-bar-fill" style="--w:78%"></div></div>
+      </div>
+      <div class="float-card fc-2">
+        <div class="fc-label">Stack</div>
+        <div class="fc-tags">
+          <span class="fc-tag">React</span>
+          <span class="fc-tag">JS</span>
+          <span class="fc-tag">Python</span>
+        </div>
+      </div>
+      <div class="float-card fc-3">
+        <div class="fc-label">قراء شهرياً</div>
+        <div class="fc-mini-line">
+          <div class="fc-bar-m" style="height:14px"></div>
+          <div class="fc-bar-m" style="height:22px"></div>
+          <div class="fc-bar-m" style="height:18px"></div>
+          <div class="fc-bar-m" style="height:30px"></div>
+          <div class="fc-bar-m" style="height:26px;opacity:1"></div>
+          <div class="fc-bar-m" style="height:34px;opacity:1"></div>
+        </div>
+      </div>
+      <div class="float-card fc-4">
+        <div class="fc-label">آخر تحديث</div>
+        <div class="fc-value" style="font-size:14px;font-weight:600;color:var(--c-gray)">اليوم ✦</div>
+      </div>
+    </div>
+  </div><!-- /hero-inner -->
+
+  <!-- Scroll hint -->
+  <div class="scroll-hint">
+    <div class="scroll-wheel"></div>
+    <span>scroll</span>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     MARQUEE
+══════════════════════════════════════ -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <!-- duplicated for seamless loop -->
+    <span class="marquee-item"><span>⚡</span><span data-i18n="mq-1">برمجة</span></span>
+    <span class="marquee-sep"></span>
+    <span class="marquee-item"><span>🌐</span><span data-i18n="mq-2">تطوير ويب</span></span>
+    <span class="marquee-sep"></span>
+    <span class="marquee-item"><span>✈️</span><span data-i18n="mq-3">تيليغرام</span></span>
+    <span class="marquee-sep"></span>
+    <span class="marquee-item"><span>📱</span><span data-i18n="mq-4">تطبيقات</span></span>
+    <span class="marquee-sep"></span>
+    <span class="marquee-item"><span>🔧</span><span data-i18n="mq-5">حلول تقنية</span></span>
+    <span class="marquee-sep"></span>
+    <span class="marquee-item"><span>💻</span><span data-i18n="mq-6">تقنية</span></span>
+    <span class="marquee-sep"></span>
+    <!-- duplicate -->
+    <span class="marquee-item"><span>⚡</span><span data-i18n="mq-1">برمجة</span></span>
+    <span class="marquee-sep"></span>
+    <span class="marquee-item"><span>🌐</span><span data-i18n="mq-2">تطوير ويب</span></span>
+    <span class="marquee-sep"></span>
+    <span class="marquee-item"><span>✈️</span><span data-i18n="mq-3">تيليغرام</span></span>
+    <span class="marquee-sep"></span>
+    <span class="marquee-item"><span>📱</span><span data-i18n="mq-4">تطبيقات</span></span>
+    <span class="marquee-sep"></span>
+    <span class="marquee-item"><span>🔧</span><span data-i18n="mq-5">حلول تقنية</span></span>
+    <span class="marquee-sep"></span>
+    <span class="marquee-item"><span>💻</span><span data-i18n="mq-6">تقنية</span></span>
+    <span class="marquee-sep"></span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     FEATURED ARTICLES
+══════════════════════════════════════ -->
+<section id="featured" class="section-pad">
+  <div class="container">
+    <div class="featured-header">
+      <div>
+        <div class="eyebrow reveal" data-i18n="ey-featured">المقالات المميزة</div>
+        <h2 class="big-title reveal d1" data-i18n="tt-featured">أحدث ما تم نشره</h2>
+      </div>
+      <a href="#" class="btn btn-link reveal d2">
+        <span data-i18n="see-featured">عرض الكل</span>
+        <span class="arrow">←</span>
+      </a>
+    </div>
+
+    <div class="featured-layout">
+      <!-- Main big card -->
+      <a href="#" class="art-card main-card reveal">
+        <div class="art-img art-img-main">
+          <!-- SVG illustration: code/programming theme -->
+          <svg viewBox="0 0 640 280" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%">
+            <rect width="640" height="280" fill="#0a0f1e"/>
+            <!-- grid -->
+            <defs>
+              <pattern id="g1" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(37,99,235,0.07)" stroke-width="1"/>
+              </pattern>
+            </defs>
+            <rect width="640" height="280" fill="url(#g1)"/>
+            <!-- glow -->
+            <ellipse cx="320" cy="140" rx="260" ry="120" fill="rgba(37,99,235,0.08)"/>
+            <!-- Floating code window -->
+            <rect x="80" y="40" width="260" height="180" rx="12" fill="#0d1424" stroke="rgba(37,99,235,0.25)" stroke-width="1"/>
+            <rect x="80" y="40" width="260" height="32" rx="12" fill="#111827"/>
+            <rect x="80" y="60" width="260" height="12" fill="#111827"/>
+            <circle cx="100" cy="56" r="5" fill="#EF4444" opacity="0.7"/>
+            <circle cx="116" cy="56" r="5" fill="#F59E0B" opacity="0.7"/>
+            <circle cx="132" cy="56" r="5" fill="#10B981" opacity="0.7"/>
+            <!-- code lines -->
+            <rect x="96" y="88" width="60" height="7" rx="3" fill="#93C5FD" opacity="0.8"/>
+            <rect x="164" y="88" width="90" height="7" rx="3" fill="#86EFAC" opacity="0.6"/>
+            <rect x="112" y="104" width="80" height="7" rx="3" fill="#FCA5A5" opacity="0.6"/>
+            <rect x="200" y="104" width="50" height="7" rx="3" fill="#F8FAFC" opacity="0.3"/>
+            <rect x="96" y="120" width="100" height="7" rx="3" fill="#93C5FD" opacity="0.5"/>
+            <rect x="96" y="136" width="140" height="7" rx="3" fill="#F8FAFC" opacity="0.15"/>
+            <rect x="112" y="152" width="60" height="7" rx="3" fill="#86EFAC" opacity="0.5"/>
+            <rect x="180" y="152" width="40" height="7" rx="3" fill="#FCA5A5" opacity="0.4"/>
+            <rect x="96" y="168" width="80" height="7" rx="3" fill="#F8FAFC" opacity="0.2"/>
+            <!-- Right side decoration -->
+            <circle cx="480" cy="100" r="60" fill="none" stroke="rgba(37,99,235,0.15)" stroke-width="1" stroke-dasharray="6 4"/>
+            <circle cx="480" cy="100" r="40" fill="rgba(37,99,235,0.05)" stroke="rgba(37,99,235,0.2)" stroke-width="1"/>
+            <text x="480" y="106" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="22" font-weight="700" fill="#2563EB" opacity="0.7">⚛</text>
+            <!-- floating tags -->
+            <rect x="400" y="170" width="70" height="24" rx="6" fill="rgba(37,99,235,0.15)" stroke="rgba(37,99,235,0.3)" stroke-width="1"/>
+            <text x="435" y="186" text-anchor="middle" font-size="10" font-family="Cairo,sans-serif" fill="#93C5FD" font-weight="700">React</text>
+            <rect x="484" y="170" width="76" height="24" rx="6" fill="rgba(6,182,212,0.1)" stroke="rgba(6,182,212,0.25)" stroke-width="1"/>
+            <text x="522" y="186" text-anchor="middle" font-size="10" font-family="Cairo,sans-serif" fill="#67E8F9" font-weight="700">Next.js</text>
+          </svg>
+        </div>
+        <div class="art-body">
+          <span class="art-cat cat-blue" data-i18n="card-1-cat">برمجة</span>
+          <div class="art-title" data-i18n="card-1-title">دليل React الشامل: من الأساسيات إلى المشاريع</div>
+          <div class="art-excerpt" data-i18n="card-1-exc">تعلم React من الصفر مع Hooks وContext وRouter وأفضل الممارسات في بناء تطبيقات حديثة.</div>
+          <div class="art-footer">
+            <div class="art-meta">
+              <span>15 يناير 2025</span>
+              <span>⏱ 18 دقيقة</span>
+            </div>
+            <div class="art-read-btn">←</div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 2 -->
+      <a href="#" class="art-card reveal d2">
+        <div class="art-img art-img-sm">
+          <svg viewBox="0 0 320 180" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%">
+            <rect width="320" height="180" fill="#060912"/>
+            <ellipse cx="160" cy="90" rx="140" ry="80" fill="rgba(6,182,212,0.07)"/>
+            <!-- Telegram-style icon -->
+            <circle cx="160" cy="80" r="44" fill="rgba(6,182,212,0.08)" stroke="rgba(6,182,212,0.2)" stroke-width="1"/>
+            <path d="M140 80 L175 65 L168 95 L156 87 L148 94 Z" fill="#06b6d4" opacity="0.7" class="draw-path" stroke="#06b6d4" stroke-width="0"/>
+            <path d="M148 94 L156 87 L162 91 Z" fill="#0284c7" opacity="0.9"/>
+            <!-- Floating dots -->
+            <circle cx="80" cy="40" r="3" fill="#06b6d4" opacity="0.4"/>
+            <circle cx="250" cy="140" r="4" fill="#2563EB" opacity="0.5"/>
+            <circle cx="40" cy="130" r="2" fill="#06b6d4" opacity="0.3"/>
+          </svg>
+        </div>
+        <div class="art-body art-body-sm">
+          <span class="art-cat cat-sky" data-i18n="card-2-cat">تيليغرام</span>
+          <div class="art-title art-title-sm" data-i18n="card-2-title">إنشاء بوت تيليغرام احترافي بـ Python</div>
+          <div class="art-footer">
+            <div class="art-meta"><span>12 يناير</span><span>⏱ 10 دق</span></div>
+            <div class="art-read-btn">←</div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 3 -->
+      <a href="#" class="art-card reveal d3">
+        <div class="art-img art-img-sm">
+          <svg viewBox="0 0 320 180" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%">
+            <rect width="320" height="180" fill="#060912"/>
+            <ellipse cx="160" cy="90" rx="130" ry="70" fill="rgba(37,99,235,0.06)"/>
+            <!-- Performance meter -->
+            <circle cx="160" cy="85" r="50" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="8"/>
+            <circle cx="160" cy="85" r="50" fill="none" stroke="#2563EB" stroke-width="8" stroke-dasharray="220" stroke-dashoffset="55" stroke-linecap="round" transform="rotate(-90 160 85)" class="draw-path" style="stroke-dasharray:220;stroke-dashoffset:220"/>
+            <text x="160" y="80" text-anchor="middle" font-size="22" font-weight="900" font-family="Space Grotesk,sans-serif" fill="#F8FAFC">98</text>
+            <text x="160" y="96" text-anchor="middle" font-size="10" fill="#94A3B8" font-family="Cairo,sans-serif">Performance</text>
+            <!-- Small metric bars -->
+            <rect x="50" y="148" width="220" height="2" rx="1" fill="rgba(255,255,255,0.04)"/>
+            <rect x="50" y="148" width="198" height="2" rx="1" fill="#2563EB" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="art-body art-body-sm">
+          <span class="art-cat cat-green" data-i18n="card-3-cat">تطوير ويب</span>
+          <div class="art-title art-title-sm" data-i18n="card-3-title">تحسين أداء موقعك: دليل Core Web Vitals</div>
+          <div class="art-footer">
+            <div class="art-meta"><span>8 يناير</span><span>⏱ 14 دق</span></div>
+            <div class="art-read-btn">←</div>
+          </div>
+        </div>
+      </a>
+    </div><!-- /featured-layout -->
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════
+     CATEGORIES
+══════════════════════════════════════ -->
+<section id="categories" class="section-pad">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:56px">
+      <div class="eyebrow reveal" style="justify-content:center" data-i18n="ey-categories">الأقسام</div>
+      <h2 class="big-title reveal d1" style="letter-spacing:-2px" data-i18n="tt-categories">تصفح حسب الاهتمام</h2>
+    </div>
+
+    <div class="cats-grid">
+      <!-- Tech -->
+      <a href="#" class="cat-tile reveal d1">
+        <div class="cat-tile-bg">
+          <svg viewBox="0 0 200 220" fill="none" style="width:100%;height:100%">
+            <rect width="200" height="220" fill="#0a0f1e"/>
+            <ellipse cx="100" cy="110" rx="90" ry="90" fill="rgba(37,99,235,0.12)"/>
+            <rect x="50" y="70" width="100" height="80" rx="8" fill="none" stroke="rgba(37,99,235,0.3)" stroke-width="1.5"/>
+            <rect x="60" y="155" width="80" height="8" rx="2" fill="rgba(37,99,235,0.2)"/>
+            <circle cx="100" cy="110" r="20" fill="rgba(37,99,235,0.15)" stroke="rgba(37,99,235,0.4)" stroke-width="1.5"/>
+            <path d="M92 110 L98 116 L108 104" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="cat-tile-overlay"></div>
+        <div class="cat-tile-content">
+          <div class="cat-icon-wrap">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" stroke="#2563EB" stroke-width="1.8"/><path d="M8 21h8M12 17v4" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <div class="cat-tile-name" data-i18n="cat-tech">تقنية</div>
+          <div class="cat-tile-count">32 مقال</div>
+        </div>
+      </a>
+
+      <!-- Programming -->
+      <a href="#" class="cat-tile reveal d2">
+        <div class="cat-tile-bg">
+          <svg viewBox="0 0 200 220" fill="none" style="width:100%;height:100%">
+            <rect width="200" height="220" fill="#060d1a"/>
+            <ellipse cx="100" cy="110" rx="80" ry="80" fill="rgba(16,185,129,0.08)"/>
+            <path d="M70 90 L50 110 L70 130" stroke="rgba(16,185,129,0.5)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M130 90 L150 110 L130 130" stroke="rgba(16,185,129,0.5)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M115 80 L85 140" stroke="rgba(6,182,212,0.4)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="cat-tile-overlay"></div>
+        <div class="cat-tile-content">
+          <div class="cat-icon-wrap">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M8 6l-4 6 4 6M16 6l4 6-4 6M14 4l-4 16" stroke="#10B981" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="cat-tile-name" data-i18n="cat-prog">برمجة</div>
+          <div class="cat-tile-count">48 مقال</div>
+        </div>
+      </a>
+
+      <!-- Telegram -->
+      <a href="#" class="cat-tile reveal d3">
+        <div class="cat-tile-bg">
+          <svg viewBox="0 0 200 220" fill="none" style="width:100%;height:100%">
+            <rect width="200" height="220" fill="#060d18"/>
+            <ellipse cx="100" cy="110" rx="80" ry="80" fill="rgba(6,182,212,0.08)"/>
+            <circle cx="100" cy="100" r="36" fill="none" stroke="rgba(6,182,212,0.2)" stroke-width="1.5"/>
+            <path d="M82 100 L117 85 L110 115 L98 107 L90 114 Z" fill="#06b6d4" opacity="0.6"/>
+            <path d="M90 114 L98 107 L104 111 Z" fill="#0e7490" opacity="0.8"/>
+          </svg>
+        </div>
+        <div class="cat-tile-overlay"></div>
+        <div class="cat-tile-content">
+          <div class="cat-icon-wrap">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M22 2L11 13" stroke="#06b6d4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 2L15 22l-4-9-9-4 20-7z" stroke="#06b6d4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="cat-tile-name" data-i18n="cat-tg">تيليغرام</div>
+          <div class="cat-tile-count">24 مقال</div>
+        </div>
+      </a>
+
+      <!-- Apps -->
+      <a href="#" class="cat-tile reveal d4">
+        <div class="cat-tile-bg">
+          <svg viewBox="0 0 200 220" fill="none" style="width:100%;height:100%">
+            <rect width="200" height="220" fill="#0a0818"/>
+            <ellipse cx="100" cy="110" rx="80" ry="80" fill="rgba(168,85,247,0.08)"/>
+            <rect x="72" y="65" width="56" height="90" rx="10" fill="none" stroke="rgba(168,85,247,0.35)" stroke-width="1.5"/>
+            <rect x="85" y="75" width="30" height="5" rx="2" fill="rgba(168,85,247,0.3)"/>
+            <rect x="80" y="88" width="40" height="20" rx="4" fill="rgba(168,85,247,0.1)" stroke="rgba(168,85,247,0.2)" stroke-width="1"/>
+            <circle cx="100" cy="148" r="4" fill="rgba(168,85,247,0.4)"/>
+          </svg>
+        </div>
+        <div class="cat-tile-overlay"></div>
+        <div class="cat-tile-content">
+          <div class="cat-icon-wrap">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="3" stroke="#A855F7" stroke-width="1.8"/><circle cx="12" cy="18" r="1" fill="#A855F7"/></svg>
+          </div>
+          <div class="cat-tile-name" data-i18n="cat-apps">تطبيقات</div>
+          <div class="cat-tile-count">18 مقال</div>
+        </div>
+      </a>
+
+      <!-- Web Dev -->
+      <a href="#" class="cat-tile reveal d5">
+        <div class="cat-tile-bg">
+          <svg viewBox="0 0 200 220" fill="none" style="width:100%;height:100%">
+            <rect width="200" height="220" fill="#080f12"/>
+            <ellipse cx="100" cy="110" rx="80" ry="80" fill="rgba(251,146,60,0.07)"/>
+            <circle cx="100" cy="105" r="38" fill="none" stroke="rgba(251,146,60,0.25)" stroke-width="1.5"/>
+            <ellipse cx="100" cy="105" rx="20" ry="38" fill="none" stroke="rgba(251,146,60,0.2)" stroke-width="1"/>
+            <line x1="62" y1="105" x2="138" y2="105" stroke="rgba(251,146,60,0.2)" stroke-width="1"/>
+            <line x1="100" y1="67" x2="100" y2="143" stroke="rgba(251,146,60,0.2)" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="cat-tile-overlay"></div>
+        <div class="cat-tile-content">
+          <div class="cat-icon-wrap">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="#F97316" stroke-width="1.8"/><path d="M2 12h20M12 2c-3 4-3 16 0 20M12 2c3 4 3 16 0 20" stroke="#F97316" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <div class="cat-tile-name" data-i18n="cat-web">تطوير ويب</div>
+          <div class="cat-tile-count">36 مقال</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════
+     GUIDES
+══════════════════════════════════════ -->
+<section id="guides" class="section-pad">
+  <div class="container">
+    <div class="featured-header">
+      <div>
+        <div class="eyebrow reveal" data-i18n="ey-guides">الأدلة الشائعة</div>
+        <h2 class="big-title reveal d1" data-i18n="tt-guides">أكثر الأدلة قراءةً</h2>
+      </div>
+      <a href="#" class="btn btn-link reveal d2">
+        <span data-i18n="see-guides">جميع الأدلة</span>
+        <span class="arrow">←</span>
+      </a>
+    </div>
+
+    <div class="guides-track">
+      <div class="guide-card reveal d1">
+        <div class="guide-n">01</div>
+        <div class="guide-title" data-i18n="g1-title">دليل المبتدئ الكامل لتعلم البرمجة من الصفر</div>
+        <div class="guide-desc" data-i18n="g1-desc">خارطة طريق واضحة تبدأ من الأساسيات وصولاً إلى مشاريع حقيقية</div>
+        <div class="guide-time">⏱ <span>22 دقيقة</span></div>
+      </div>
+      <div class="guide-card reveal d2">
+        <div class="guide-n">02</div>
+        <div class="guide-title" data-i18n="g2-title">كل ما تحتاجه عن Next.js في 2025</div>
+        <div class="guide-desc" data-i18n="g2-desc">App Router وServer Components والنشر على Vercel بمشاريع تطبيقية</div>
+        <div class="guide-time">⏱ <span>30 دقيقة</span></div>
+      </div>
+      <div class="guide-card reveal d3">
+        <div class="guide-n">03</div>
+        <div class="guide-title" data-i18n="g3-title">إتقان Git وGitHub من المبتدئ للمحترف</div>
+        <div class="guide-desc" data-i18n="g3-desc">التحكم بالإصدارات والتعاون في المشاريع وأفضل الممارسات</div>
+        <div class="guide-time">⏱ <span>18 دقيقة</span></div>
+      </div>
+      <div class="guide-card reveal d4">
+        <div class="guide-n">04</div>
+        <div class="guide-title" data-i18n="g4-title">بناء تطبيقات تيليغرام: البوتات والمنصات</div>
+        <div class="guide-desc" data-i18n="g4-desc">بناء بوتات احترافية والاستفادة من API تيليغرام لأتمتة المهام</div>
+        <div class="guide-time">⏱ <span>25 دقيقة</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════
+     FEATURE SPLIT
+══════════════════════════════════════ -->
+<section id="feature-split" class="section-pad">
+  <div class="container">
+    <div class="split-layout">
+      <!-- Visual -->
+      <div class="split-visual reveal-left">
+        <div class="split-visual-glow"></div>
+        <!-- Big animated SVG -->
+        <svg viewBox="0 0 480 500" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%">
+          <defs>
+            <radialGradient id="sg1" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#2563EB" stop-opacity="0.15"/>
+              <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="480" height="500" fill="#0d1424"/>
+          <circle cx="240" cy="250" r="180" fill="url(#sg1)"/>
+          <!-- Hexagonal grid pattern -->
+          <g opacity="0.12">
+            <path d="M200 140 L220 128 L240 140 L240 164 L220 176 L200 164Z" stroke="#2563EB" stroke-width="1"/>
+            <path d="M240 140 L260 128 L280 140 L280 164 L260 176 L240 164Z" stroke="#2563EB" stroke-width="1"/>
+            <path d="M180 176 L200 164 L220 176 L220 200 L200 212 L180 200Z" stroke="#2563EB" stroke-width="1"/>
+            <path d="M220 176 L240 164 L260 176 L260 200 L240 212 L220 200Z" stroke="#2563EB" stroke-width="1"/>
+            <path d="M260 176 L280 164 L300 176 L300 200 L280 212 L260 200Z" stroke="#2563EB" stroke-width="1"/>
+            <path d="M200 212 L220 200 L240 212 L240 236 L220 248 L200 236Z" stroke="#2563EB" stroke-width="1"/>
+            <path d="M240 212 L260 200 L280 212 L280 236 L260 248 L240 236Z" stroke="#2563EB" stroke-width="1"/>
+            <path d="M220 248 L240 236 L260 248 L260 272 L240 284 L220 272Z" stroke="#2563EB" stroke-width="1" opacity="0.5"/>
+          </g>
+          <!-- Central icon -->
+          <circle cx="240" cy="250" r="48" fill="rgba(37,99,235,0.1)" stroke="rgba(37,99,235,0.35)" stroke-width="1.5"/>
+          <path d="M224 250 L236 262 L256 238" stroke="#2563EB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="draw-path"/>
+          <!-- orbiting dots -->
+          <circle r="5" fill="#2563EB">
+            <animateMotion dur="6s" repeatCount="indefinite">
+              <mpath href="#orbit1"/>
+            </animateMotion>
+          </circle>
+          <path id="orbit1" d="M240,130 A120,120 0 1,1 239.9,130" fill="none"/>
+          <circle r="3.5" fill="#06b6d4" opacity="0.8">
+            <animateMotion dur="9s" repeatCount="indefinite" begin="-3s">
+              <mpath href="#orbit2"/>
+            </animateMotion>
+          </circle>
+          <path id="orbit2" d="M240,180 A70,70 0 1,0 239.9,180" fill="none"/>
+          <!-- text labels -->
+          <text x="80" y="200" font-size="11" font-family="Cairo,sans-serif" fill="#475569" font-weight="600">Next.js</text>
+          <text x="360" y="180" font-size="11" font-family="Cairo,sans-serif" fill="#475569" font-weight="600">React</text>
+          <text x="100" y="320" font-size="11" font-family="Cairo,sans-serif" fill="#475569" font-weight="600">Python</text>
+          <text x="340" y="330" font-size="11" font-family="Cairo,sans-serif" fill="#475569" font-weight="600">API</text>
+        </svg>
+      </div>
+
+      <!-- Content -->
+      <div>
+        <div class="eyebrow reveal" data-i18n="ey-split">ما ستجده هنا</div>
+        <h2 class="big-title reveal d1" style="font-size:clamp(28px,4vw,52px)" data-i18n="tt-split">منصة معرفية متكاملة</h2>
+        <p class="sub-text reveal d2" style="margin:16px 0 40px">محتوى تقني عميق يأخذك من الفهم النظري إلى التطبيق العملي.</p>
+        <div class="split-items">
+          <div class="split-item reveal d2">
+            <div class="split-item-icon">📖</div>
+            <div><div class="split-item-title" data-i18n="sp1-t">مقالات برمجية عمق تقني</div><div class="split-item-desc" data-i18n="sp1-d">محتوى يأخذك إلى ما وراء السطح لفهم كيف تعمل الأشياء فعلاً</div></div>
+          </div>
+          <div class="split-item reveal d3">
+            <div class="split-item-icon">🎯</div>
+            <div><div class="split-item-title" data-i18n="sp2-t">شروحات تطبيقية مفصّلة</div><div class="split-item-desc" data-i18n="sp2-d">خطوة بخطوة مع أمثلة كود حقيقية قابلة للتطبيق الفوري</div></div>
+          </div>
+          <div class="split-item reveal d4">
+            <div class="split-item-icon">🔧</div>
+            <div><div class="split-item-title" data-i18n="sp3-t">حلول لمشاكل يومية</div><div class="split-item-desc" data-i18n="sp3-d">أجوبة مباشرة للأخطاء والمشاكل التي تواجه المطورين يومياً</div></div>
+          </div>
+          <div class="split-item reveal d5">
+            <div class="split-item-icon">📦</div>
+            <div><div class="split-item-title" data-i18n="sp4-t">موارد ومراجع مختارة</div><div class="split-item-desc" data-i18n="sp4-d">أفضل الأدوات والمكتبات والمراجع الموثوقة في كل مجال</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════
+     TUTORIALS
+══════════════════════════════════════ -->
+<section id="tutorials" class="section-pad">
+  <div class="container">
+    <div class="featured-header">
+      <div>
+        <div class="eyebrow reveal" data-i18n="ey-tutorials">أحدث الشروحات</div>
+        <h2 class="big-title reveal d1" data-i18n="tt-tutorials">شروحات خطوة بخطوة</h2>
+      </div>
+      <a href="#" class="btn btn-link reveal d2">
+        <span data-i18n="see-tutorials">جميع الشروحات</span>
+        <span class="arrow">←</span>
+      </a>
+    </div>
+    <div class="tuts-grid">
+      <a href="#" class="art-card reveal d1">
+        <div class="art-img" style="height:180px">
+          <svg viewBox="0 0 320 180" fill="none" style="position:absolute;inset:0;width:100%;height:100%">
+            <rect width="320" height="180" fill="#060912"/>
+            <ellipse cx="160" cy="90" rx="120" ry="70" fill="rgba(168,85,247,0.07)"/>
+            <rect x="60" y="50" width="200" height="120" rx="10" fill="none" stroke="rgba(168,85,247,0.2)" stroke-width="1"/>
+            <rect x="60" y="50" width="200" height="28" rx="10" fill="#0d1120"/>
+            <rect x="60" y="66" width="200" height="12" fill="#0d1120"/>
+            <circle cx="78" cy="64" r="4" fill="#EF4444" opacity="0.6"/>
+            <circle cx="92" cy="64" r="4" fill="#F59E0B" opacity="0.6"/>
+            <circle cx="106" cy="64" r="4" fill="#10B981" opacity="0.6"/>
+            <rect x="76" y="92" width="50" height="5" rx="2" fill="#D8B4FE" opacity="0.5"/>
+            <rect x="76" y="105" width="100" height="5" rx="2" fill="#F8FAFC" opacity="0.15"/>
+            <rect x="92" y="118" width="60" height="5" rx="2" fill="#D8B4FE" opacity="0.4"/>
+            <rect x="76" y="131" width="80" height="5" rx="2" fill="#F8FAFC" opacity="0.1"/>
+          </svg>
+        </div>
+        <div class="art-body art-body-sm">
+          <span class="art-cat cat-purple">تطبيقات</span>
+          <div class="art-title art-title-sm">أفضل 10 تطبيقات للمطورين في 2025</div>
+          <div class="art-footer">
+            <div class="art-meta"><span>5 يناير</span><span>⏱ 9 دق</span></div>
+            <div class="art-read-btn">←</div>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="art-card reveal d2">
+        <div class="art-img" style="height:180px">
+          <svg viewBox="0 0 320 180" fill="none" style="position:absolute;inset:0;width:100%;height:100%">
+            <rect width="320" height="180" fill="#060912"/>
+            <ellipse cx="160" cy="90" rx="120" ry="70" fill="rgba(251,146,60,0.06)"/>
+            <!-- terminal -->
+            <rect x="40" y="40" width="240" height="100" rx="10" fill="#0d1120" stroke="rgba(251,146,60,0.2)" stroke-width="1"/>
+            <text x="56" y="72" font-family="JetBrains Mono,monospace" font-size="11" fill="#F97316" opacity="0.8">$ npm install</text>
+            <text x="56" y="90" font-family="JetBrains Mono,monospace" font-size="11" fill="#86EFAC" opacity="0.7">✔ Done in 2.3s</text>
+            <text x="56" y="108" font-family="JetBrains Mono,monospace" font-size="11" fill="#94A3B8" opacity="0.5">$ npm run dev</text>
+            <rect x="56" y="114" width="8" height="14" rx="1" fill="#F97316" opacity="0.8">
+              <animate attributeName="opacity" values="0.8;0;0.8" dur="1s" repeatCount="indefinite"/>
+            </rect>
+          </svg>
+        </div>
+        <div class="art-body art-body-sm">
+          <span class="art-cat cat-orange">حلول تقنية</span>
+          <div class="art-title art-title-sm">حل مشكلة npm install الشائعة نهائياً</div>
+          <div class="art-footer">
+            <div class="art-meta"><span>3 يناير</span><span>⏱ 6 دق</span></div>
+            <div class="art-read-btn">←</div>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="art-card reveal d3">
+        <div class="art-img" style="height:180px">
+          <svg viewBox="0 0 320 180" fill="none" style="position:absolute;inset:0;width:100%;height:100%">
+            <rect width="320" height="180" fill="#060912"/>
+            <ellipse cx="160" cy="90" rx="120" ry="70" fill="rgba(6,182,212,0.06)"/>
+            <!-- API diagram -->
+            <rect x="40" y="70" width="70" height="40" rx="8" fill="#0d1424" stroke="rgba(6,182,212,0.3)" stroke-width="1.5"/>
+            <text x="75" y="94" text-anchor="middle" font-size="10" font-family="JetBrains Mono,monospace" fill="#67E8F9">Client</text>
+            <path d="M110 88 L145 88" stroke="#06b6d4" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <path d="M142 84 L148 88 L142 92" stroke="#06b6d4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="148" y="68" width="80" height="44" rx="8" fill="#0d1424" stroke="rgba(37,99,235,0.4)" stroke-width="1.5"/>
+            <text x="188" y="94" text-anchor="middle" font-size="10" font-family="JetBrains Mono,monospace" fill="#93C5FD">JWT API</text>
+            <path d="M228 88 L213 88" stroke="#2563EB" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.6"/>
+            <rect x="230" y="70" width="54" height="40" rx="8" fill="#0d1424" stroke="rgba(16,185,129,0.3)" stroke-width="1"/>
+            <text x="257" y="94" text-anchor="middle" font-size="10" font-family="JetBrains Mono,monospace" fill="#6EE7B7">DB</text>
+          </svg>
+        </div>
+        <div class="art-body art-body-sm">
+          <span class="art-cat cat-sky">تطوير ويب</span>
+          <div class="art-title art-title-sm">تأمين API باستخدام JWT بشكل صحيح</div>
+          <div class="art-footer">
+            <div class="art-meta"><span>1 يناير</span><span>⏱ 12 دق</span></div>
+            <div class="art-read-btn">←</div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════
+     FAQ
+══════════════════════════════════════ -->
+<section id="faq" class="section-pad">
+  <div class="container">
+    <div class="faq-cols">
+      <div>
+        <div class="eyebrow reveal" data-i18n="ey-faq">الأسئلة الشائعة</div>
+        <h2 class="big-title reveal d1" style="font-size:clamp(28px,4vw,52px)" data-i18n="tt-faq">أسئلة يطرحها القراء</h2>
+        <p class="sub-text reveal d2" style="margin-top:14px;font-size:15px">كل ما تريد معرفته عن المدونة في مكان واحد.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item reveal d1">
+          <div class="faq-q"><span data-i18n="faq1-q">ما هو تخصص هذه المدونة؟</span><span class="faq-chevron">▾</span></div>
+          <div class="faq-body"><p data-i18n="faq1-a">مدونة محمد رضا متخصصة في المحتوى التقني العربي الشامل: البرمجة وتطوير الويب وشروحات التطبيقات والحلول التقنية.</p></div>
+        </div>
+        <div class="faq-item reveal d2">
+          <div class="faq-q"><span data-i18n="faq2-q">هل المحتوى مجاني؟</span><span class="faq-chevron">▾</span></div>
+          <div class="faq-body"><p data-i18n="faq2-a">نعم، جميع المقالات والأدلة والشروحات متاحة مجاناً. الهدف نشر المعرفة التقنية باللغة العربية للجميع.</p></div>
+        </div>
+        <div class="faq-item reveal d3">
+          <div class="faq-q"><span data-i18n="faq3-q">كيف أتابع أحدث المقالات؟</span><span class="faq-chevron">▾</span></div>
+          <div class="faq-body"><p data-i18n="faq3-a">يمكنك الاشتراك في النشرة البريدية أو متابعتنا على تيليغرام ليصلك كل جديد فور نشره.</p></div>
+        </div>
+        <div class="faq-item reveal d4">
+          <div class="faq-q"><span data-i18n="faq4-q">هل يمكنني اقتراح موضوع؟</span><span class="faq-chevron">▾</span></div>
+          <div class="faq-body"><p data-i18n="faq4-a">بالتأكيد! نرحب دائماً بالاقتراحات. تواصل معنا عبر نموذج التواصل أو مباشرة على تيليغرام.</p></div>
+        </div>
+        <div class="faq-item reveal d5">
+          <div class="faq-q"><span data-i18n="faq5-q">ما مستوى المحتوى؟</span><span class="faq-chevron">▾</span></div>
+          <div class="faq-body"><p data-i18n="faq5-a">المدونة تستهدف جميع المستويات — من المبتدئ الذي يبدأ رحلته إلى المحترف الذي يبحث عن تعمق أكبر.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════
+     CONTACT
+══════════════════════════════════════ -->
+<section id="contact" class="section-pad">
+  <div class="container">
+    <div style="margin-bottom:56px">
+      <div class="eyebrow reveal" data-i18n="ey-contact">التواصل</div>
+      <h2 class="big-title reveal d1" data-i18n="tt-contact">تواصل معنا</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="cinfo-card reveal d1">
+          <div class="cinfo-icon">✉️</div>
+          <div><div class="cinfo-title" data-i18n="ci-email-t">البريد الإلكتروني</div><div class="cinfo-val" data-i18n="ci-email-v">contact@mohamedreda.blog</div></div>
+        </div>
+        <div class="cinfo-card reveal d2">
+          <div class="cinfo-icon">✈️</div>
+          <div><div class="cinfo-title" data-i18n="ci-tg-t">تيليغرام</div><div class="cinfo-val" data-i18n="ci-tg-v">@MohamedRedaBlog</div></div>
+        </div>
+        <div class="cinfo-card reveal d3">
+          <div class="cinfo-icon">📍</div>
+          <div><div class="cinfo-title" data-i18n="ci-loc-t">الموقع</div><div class="cinfo-val" data-i18n="ci-loc-v">مصر — متاح دولياً</div></div>
+        </div>
+        <div class="cinfo-card reveal d4">
+          <div class="cinfo-icon">⏱</div>
+          <div><div class="cinfo-title" data-i18n="ci-time-t">وقت الرد</div><div class="cinfo-val" data-i18n="ci-time-v">خلال ٢٤ ساعة</div></div>
+        </div>
+      </div>
+
+      <div class="contact-form reveal d2">
+        <div class="form-row">
+          <div class="form-field">
+            <label class="form-label" data-i18n="cf-name">الاسم الكامل</label>
+            <input type="text" class="form-input" data-i18n="cf-ph-name" placeholder="أدخل اسمك..."/>
+          </div>
+          <div class="form-field">
+            <label class="form-label" data-i18n="cf-email">البريد الإلكتروني</label>
+            <input type="email" class="form-input" dir="ltr" data-i18n="cf-ph-email" placeholder="email@example.com"/>
+          </div>
+        </div>
+        <div class="form-field">
+          <label class="form-label" data-i18n="cf-sub">الموضوع</label>
+          <input type="text" class="form-input" data-i18n="cf-ph-sub" placeholder="موضوع رسالتك..."/>
+        </div>
+        <div class="form-field">
+          <label class="form-label" data-i18n="cf-msg">الرسالة</label>
+          <textarea class="form-textarea" data-i18n="cf-ph-msg" placeholder="اكتب رسالتك هنا..."></textarea>
+        </div>
+        <button class="btn btn-primary" style="width:100%;justify-content:center">
+          <span data-i18n="cf-send">إرسال الرسالة</span> ✉
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="ft-brand-logo">MR<span class="dot">.</span></div>
+      <p class="ft-desc" data-i18n="ft-desc">مدونة تقنية متخصصة تقدم محتوى عربياً عالي الجودة في البرمجة وتطوير الويب والحلول التقنية.</p>
+      <div class="ft-social">
+        <a href="#" class="ft-soc-btn" title="يوتيوب">▶</a>
+        <a href="#" class="ft-soc-btn" title="تيليغرام">✈</a>
+        <a href="#" class="ft-soc-btn" title="GitHub">⌥</a>
+        <a href="#" class="ft-soc-btn" title="تويتر">𝕏</a>
+      </div>
+    </div>
+    <div>
+      <div class="ft-col-title" data-i18n="ft-col1">الأقسام</div>
+      <ul class="ft-links">
+        <li><a href="#">تقنية</a></li>
+        <li><a href="#">برمجة</a></li>
+        <li><a href="#">تيليغرام</a></li>
+        <li><a href="#">تطبيقات</a></li>
+        <li><a href="#">تطوير ويب</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="ft-col-title" data-i18n="ft-col2">روابط</div>
+      <ul class="ft-links">
+        <li><a href="#">المدونة</a></li>
+        <li><a href="#">الأدلة</a></li>
+        <li><a href="#">الموارد</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#">سياسة الخصوصية</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="ft-col-title" data-i18n="ft-col3">تابعنا</div>
+      <ul class="ft-links">
+        <li><a href="#">يوتيوب</a></li>
+        <li><a href="#">تيليغرام</a></li>
+        <li><a href="#">GitHub</a></li>
+        <li><a href="#">تويتر</a></li>
+        <li><a href="#">النشرة البريدية</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span data-i18n="ft-copy">© 2025 محمد رضا. جميع الحقوق محفوظة.</span>
+    <div class="footer-bottom-links">
+      <a href="#">سياسة الخصوصية</a>
+      <a href="#">شروط الاستخدام</a>
+    </div>
+  </div>
+</footer>
+
+    <button id="scrollTopBtn" class="scroll-top" data-aos="fade-up">
+    <i class='bx bx-up-arrow-alt'></i>
+</button>
+
+<!-- ─── JS ─── -->
+<script src="app.js"></script>
+<script src="animations.js"></script>
+</body>
+</html>

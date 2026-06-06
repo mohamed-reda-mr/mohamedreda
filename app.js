@@ -61,6 +61,51 @@ function updateActiveLink() {
   });
 }
 
+
+
+
+
+const mobileLinks = document.querySelectorAll('.mob-link');
+const sections = document.querySelectorAll('section[id]');
+
+window.addEventListener('scroll', () => {
+
+    let current = '';
+
+    sections.forEach(section => {
+
+        const sectionTop = section.offsetTop - 120;
+        const sectionHeight = section.offsetHeight;
+
+        if (
+            window.scrollY >= sectionTop &&
+            window.scrollY < sectionTop + sectionHeight
+        ) {
+            current = section.getAttribute('id');
+        }
+
+    });
+
+    mobileLinks.forEach(link => {
+
+        link.classList.remove('mobile-active');
+
+        if (
+            link.getAttribute('href') === `#${current}`
+        ) {
+
+            link.classList.add('mobile-active');
+
+        }
+
+    });
+
+});
+
+
+
+
+
 // ══════════════════════════════════════════
 //  MOBILE MENU
 // ══════════════════════════════════════════

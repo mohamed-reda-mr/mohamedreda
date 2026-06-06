@@ -310,21 +310,33 @@ window.addEventListener('scroll', () => {
 
 
 
-const scrollBtn = document.getElementById("scrollTopBtn");
+/* ===== BACK TO TOP ===== */
 
-// إظهار الزر عندما تنزل
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 350) {
-        scrollBtn.classList.add("show");
-    } else {
-        scrollBtn.classList.remove("show");
+const backTop = document.getElementById('back-top');
+
+if (backTop) {
+
+    function toggleBackTop() {
+
+        if (window.scrollY > 500) {
+            backTop.classList.add('visible');
+        } else {
+            backTop.classList.remove('visible');
+        }
+
     }
-});
 
-// الصعود للمقدمة
-scrollBtn.addEventListener("click", () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+    window.addEventListener('scroll', toggleBackTop);
+
+    toggleBackTop();
+
+    backTop.addEventListener('click', () => {
+
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+
     });
-});
+
+}

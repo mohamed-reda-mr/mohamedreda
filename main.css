@@ -159,8 +159,8 @@ ul { list-style: none; }
   border-bottom: 1px solid transparent;
 }
 #nav.scrolled::before {
-  background: rgba(6,9,18,0.75);
-  backdrop-filter: blur(24px) saturate(1.5);
+  background: rgba(5, 2, 2, 0.097);
+  backdrop-filter: blur(10px) saturate(1.5);
   border-bottom-color: var(--c-border);
 }
 [data-theme="light"] #nav.scrolled::before {
@@ -293,7 +293,7 @@ ul { list-style: none; }
 
 .mob-link.mobile-active{
 
-    color:#fff;
+    color: var(--c-white);
 
     background:
     rgba(255,255,255,.04);
